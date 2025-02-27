@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request, redirect
-
+import database
 app = Flask(__name__)
 
-islaidu_zurnalas = [700, -20, -30]
+islaidu_zurnalas = database.nuskaityti()
 
 @app.route("/")
 def home():
@@ -17,6 +17,7 @@ def prideti_irasa():
     if request.method == "POST":
         suma = int(request.form['suma'])
         islaidu_zurnalas.append(suma)
+        database.irasyti(suma)
         return redirect('/zurnalas/')
     return render_template("prideti.html")
 

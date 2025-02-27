@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Žurnalo įrašai:</h1>
+{% for irasas in zurnalas %}
+<p>{{ irasas }}</p>
+{% endfor %}
+{% endblock %}

@@ -20,5 +20,9 @@ def prideti_irasa():
         return redirect('/zurnalas/')
     return render_template("prideti.html")
 
+@app.route("/balansas/")
+def balansas():
+    return render_template("balansas.html", balansas=sum(islaidu_zurnalas))
+
 if __name__ == "__main__":
     app.run(debug=True)
